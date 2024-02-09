@@ -1,0 +1,201 @@
+.footer {
+  background-color: #3140af;
+  margin-top: 30px;
+  height: 410px;
+  width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.footer__items {
+  display: flex;
+  color: #ffffff;
+}
+.footer__left {
+  padding-right: 20px;
+}
+.etsy__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #361e6c;
+  width: 490px;
+  height: 315px;
+  margin-left: 40px;
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+  }
+  button {
+    height: 48px;
+    width: 213px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    background-color: #3140af;
+    &:hover {
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    }
+  }
+}
+.footer__right {
+  display: flex;
+  padding: 30px;
+  justify-content: space-around;
+}
+.section__one {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 199px;
+  h5 {
+    font-size: 16px;
+  }
+  .spans {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: lighter;
+    :hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+.section__two {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 199px;
+  h5 {
+    font-size: 16px;
+  }
+  .spans {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: lighter;
+    :hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+.section__three {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 199px;
+  h5 {
+    font-size: 16px;
+  }
+  .spans {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: lighter;
+    :hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+.section__four {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 199px;
+
+  h5 {
+    font-size: 16px;
+  }
+  .spans {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: lighter;
+    :hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .icons {
+    display: flex;
+    gap: 12px;
+    font-size: 20px;
+    :hover {
+      cursor: pointer;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    }
+  }
+}
+.footer__items__two {
+  color: #ffffff;
+  height: 73px;
+  width: 100%;
+  background-color: #222222;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  padding: 30px;
+  font-size: 12.99px;
+  align-items: center;
+  font-weight: lighter;
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-align: center;
+    gap: 15px;
+    .world__icon {
+      font-size: 18px;
+    }
+    .countries {
+      display: flex;
+      gap: 15px;
+    }
+  }
+  .left {
+    .privacy {
+      display: flex;
+      gap: 20px;
+      text-decoration: underline;
+    }
+  }
+}
+.footer__items__one {
+  color: white;
+  background-color: #3b67d9;
+  height: 86px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  .electricity {
+    font-size: 16px;
+    text-decoration: wavy;
+    font-weight: lighter;
+    :hover{
+      cursor: help;
+    }
+  }
+  .world__icon {
+    padding-top: 5px;
+    font-size: 30px;
+  }
+}
