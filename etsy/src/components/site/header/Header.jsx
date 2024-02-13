@@ -6,6 +6,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { LuShoppingCart } from "react-icons/lu";
+import {Link} from 'react-router-dom'
 import "./Header.scss";
 
 const Header = () => {
@@ -14,7 +15,7 @@ const Header = () => {
       <div className="navbar">
         <div className="navbar__items">
           <div className="navbar__logo">
-            <span>Etsy</span>
+            <Link to=''><span>Etsy</span></Link>
           </div>
           <div className="categories">
             <RxHamburgerMenu className="hamburger" />
@@ -42,7 +43,7 @@ const Header = () => {
               </div>
               <div className="dropdown-content">Notification</div>
             </div>
-            <div className="dropdown ">
+            <Link to='/login'><div className="dropdown ">
               <div className="profile__item ">
                 <div className="profile">
                   <CgProfile />
@@ -50,7 +51,7 @@ const Header = () => {
                 </div>
               </div>
               <div className="dropdown-content">Profile</div>
-            </div>
+            </div></Link>
 
             <div className="cart ">
               <LuShoppingCart />

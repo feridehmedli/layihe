@@ -17,6 +17,13 @@
   color: orangered;
   font-weight: lighter;
   font-size: 30px;
+  text-decoration: none;
+  width: 40px;
+  a{
+    text-decoration: none;
+    color: orangered;
+    font-weight: 500;
+  }
 }
 .categories {
   font-size: 15px;
@@ -88,6 +95,8 @@
   font-size: 22px;
   padding-bottom: 1px;
   gap: 5px;
+  text-decoration: none;
+  color: black;
 }
 .favourites {
   &:hover {
@@ -179,6 +188,25 @@
     cursor: pointer;
     border-radius: 20px;
     transition: 0.2s;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar__items {
+    flex-direction: column;
+  }
+
+  .navbar__logo {
+    margin-bottom: 15px;
+  }
+
+  .categories {
+    width: auto;
+    padding: 5px;
+  }
+
+  .search__bar input {
+    width: 100%;
+    max-width: none;
   }
 }
 

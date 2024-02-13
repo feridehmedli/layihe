@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import "./Hero.scss";
 import { FaArrowRightLong } from "react-icons/fa6";
-
+import { useEffect } from "react";
+import axios from 'axios'
 const Hero = () => {
+  const [data,setData] = useState()
+  useEffect(()=>{
+    axios.get("http://localhost:8080/human/login").then((res)=>{
+      setData(res.data)
+    })
+  },[])
   return (
     <div>
       <div className="hero">
