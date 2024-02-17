@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FaRegHeart } from "react-icons/fa";
-import "./Hero.scss";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { useEffect } from "react";
-import axios from 'axios'
+import axios from "axios";
+import { MainContext } from "../../../context/Context";
+import "./Hero.scss";
+
 const Hero = () => {
-  const [data,setData] = useState()
-  useEffect(()=>{
-    axios.get("http://localhost:8080/human/login").then((res)=>{
-      setData(res.data)
-    })
-  },[])
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/recentlyfavourited/").then((res) => {
+      setData(res.data);
+    });
+  }, []);
+
   return (
     <div>
       <div className="hero">
@@ -29,77 +32,29 @@ const Hero = () => {
             <FaArrowRightLong />
           </div>
           <div className="cards">
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
+          {data && data.length > 0 ? (
+            data.map((item, index) => {
+              return (
+                <div key={index}>
+                    <div className="card__items">
+                      <div className="card__image">
+                        <img src={item.image} alt="" />
+                      </div>
+                      <div className="price">
+                        <span> USD {item.price}</span>
+                      </div>
+                      <div className="favourite">
+                        <FaRegHeart />
+                      </div>
+                    </div>
+                  </div>
+              );
+            })
+            ) 
+            : (
+              <p>No data available</p>
+              )}
               </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

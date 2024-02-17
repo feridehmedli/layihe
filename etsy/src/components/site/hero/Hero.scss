@@ -10,6 +10,8 @@
 }
 .hero__items {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .welcome {
   display: flex;
@@ -21,12 +23,12 @@
   padding-top: 10px;
   font-weight: 100;
 }
-.cards {
+.cards{
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
   gap: 50px;
-  padding-left: 10px;
 }
 .recently {
   font-weight: 700;
@@ -45,6 +47,8 @@
   }
 }
 .card__items {
+  display: flex;
+  flex-wrap: wrap;
   &:hover .favourite {
     opacity: 1;
     transition: 0.3s;
@@ -73,6 +77,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .card__image {
   img {

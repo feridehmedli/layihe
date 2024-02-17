@@ -3,13 +3,15 @@ import { Formik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { toast } from "react-hot-toast";
+import './Register.scss'
 
 const Register = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="login__common">
+        <div className="login">
       <div>
-        <h1>Anywhere in your app!</h1>
+        <span className="login__title">Register</span>
         <Formik
           initialValues={{ name: "", surname: "", email: "", password: "" }}
           validate={(values) => {
@@ -43,7 +45,8 @@ const Register = () => {
             isSubmitting,
             /* and other goodies */
           }) => (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="login__items">
+                <span>Email Address</span>
               <input
                 type="email"
                 name="email"
@@ -51,6 +54,7 @@ const Register = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
+              <span>Name</span>
               <input
                 type="text"
                 name="name"
@@ -58,6 +62,7 @@ const Register = () => {
                 onBlur={handleBlur}
                 value={values.name}
               />
+              <span>Password</span>
               {errors.email && touched.email && errors.email}
               <input
                 type="password"
@@ -67,13 +72,16 @@ const Register = () => {
                 value={values.password}
               />
               {errors.password && touched.password && errors.password}
-              <button type="submit" disabled={isSubmitting}>
-                Submit
+              <div className="button">
+              <button type="submit" disabled={isSubmitting} >
+                Sign Up
               </button>
+              </div>
             </form>
           )}
         </Formik>
       </div>
+    </div>
     </div>
   );
 };

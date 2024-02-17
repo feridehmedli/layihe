@@ -1,6 +1,6 @@
 // const { Human } = require("../models/Human.model");
 // const jwt = require("jsonwebtoken");
-// const JWT_SECRET = 'ferid';
+// const JWT_SECRET = "ferid";
 
 // const protect = async (req, res, next) => {
 //   try {
@@ -11,7 +11,7 @@
 //     ) {
 //       token = req.headers.authorization.split(" ")[1];
 //       const decoded = jwt.verify(token, JWT_SECRET);
-//       req.user = await Human.findById(decoded.id).select('-password');
+//       req.user = await Human.findById(decoded.id).select("-password");
 //       next();
 //     } else {
 //       res.status(401).send("Not authorized");

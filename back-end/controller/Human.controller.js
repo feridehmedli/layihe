@@ -1,7 +1,7 @@
 const { Human } = require("../models/Human.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = 'ferid'
+const JWT_SECRET = "ferid";
 const HumanController = {
   getAll: async (req, res) => {
     try {
@@ -15,13 +15,15 @@ const HumanController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      const user = await Human.findOne({ email, password });
+      const user = await Human.findOne({ email });
       if (user && (await bcrypt.compare(password, user.password))) {
-        res.send(user);
+        res.status(200).send(user);
       } else {
-        res.send("Email or password is not true");
+        res.status(400).send("Email or password is not true");
       }
-    } catch (error) {}
+    } catch (error) {
+      res.status(404).send("Can not login")
+    }
   },
   register: async (req, res) => {
     try {
@@ -40,15 +42,13 @@ const HumanController = {
         email,
       });
       await newHuman.save();
-      res
-        .status(201)
-        .send({
-          name: newHuman.name,
-          surname: newHuman.surname,
-          password: newHuman.password,
-          email: newHuman.email,
-          token: await generateToken(newHuman._id),
-        });
+      res.status(201).send({
+        name: newHuman.name,
+        surname: newHuman.surname,
+        password: newHuman.password,
+        email: newHuman.email,
+        token: await generateToken(newHuman._id),
+      });
     } catch (error) {
       res.status(404).send("Can not post");
     }
