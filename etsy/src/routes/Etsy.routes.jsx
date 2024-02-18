@@ -7,6 +7,8 @@ import Login from "../components/site/login/Login";
 import Register from "../components/site/register/Register";
 import Wishlist from "../components/site/wishlist/Wishlist";
 import HomeCategory from "../components/site/homeCategory/HomeCategory";
+import ArtCategory from "../components/site/artCategory/ArtCategory";
+import DetailPage from "../components/site/detailPage/DetailPage";
 
 export const Router = [
   {
@@ -30,6 +32,10 @@ export const Router = [
         element: <Accessories />,
       },
       {
+        path : '/:id',
+        element : <DetailPage/>
+      },
+      {
         path: "/jewellery",
         element: <Jewellery />,
       },
@@ -40,6 +46,10 @@ export const Router = [
       {
         path : '/homeCategory',
         element : <HomeCategory/>
+      },
+      {
+        path:'/artCategory',
+        element : <ArtCategory/>
       }
     ],
   },

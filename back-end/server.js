@@ -6,6 +6,7 @@ const recentlyFavouritedRouter = require("./routes/RecentlyFavourited.routes")
 const accesoriesRouter = require('./routes/Accesories.routes')
 const jewelleryRouter = require('./routes/Jewellery.routes')
 const homeRouter = require('./routes/Home.routes')
+const artRouter = require('./routes/Art.routes')
 const cors = require("cors");
 
 
@@ -16,6 +17,8 @@ app.use("/recentlyfavourited",recentlyFavouritedRouter)
 app.use("/accesories",accesoriesRouter)
 app.use('/jewellery',jewelleryRouter)
 app.use("/homeCategory",homeRouter)
+app.use("/art",artRouter)
+
 mongoose
   .connect("mongodb+srv://Farid:ferid2004@cluster0.ldyfdvf.mongodb.net/")
   .then(() => {

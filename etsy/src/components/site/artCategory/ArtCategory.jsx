@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Accessories.scss";
+import "./ArtCategory.scss";
 import { IoIosStar } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
 import { MainContext } from "../../../context/Context";
-import { Link } from "react-router-dom";
 
-const Accessories = () => {
+
+const ArtCategory = () => {
   const [data, setData] = useState([]);
   const [sortOption, setSortOption] = useState("relevancy");
-
+  const {handleAddWishlist} = useContext(MainContext)
   useEffect(() => {
-    axios.get("http://localhost:8080/accesories")
+    axios.get("http://localhost:8080/art")
       .then((res) => {
         setData(res.data);
       })
@@ -23,7 +23,7 @@ const Accessories = () => {
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
   };
-  const {handleAddWishlist} = useContext(MainContext)
+
   const sortedData = [...data];
 
   if (sortOption === "lowtohigh") {
@@ -38,53 +38,53 @@ const Accessories = () => {
         <div className="accesories__items">
           <div className="section__ones">
             <div className="category__title">
-              <span>Accessories</span>
+              <span>Art & Collectibles</span>
               <span className="smalls">
-                Scarves, hats, and hair accessories that tie it all together
+              Custom artwork, portraits, and totally original paintings and prints to turn your home into a gallery
               </span>
             </div>
             <div className="small__category">
             <div className="section">
                 <img
-                  src="https://i.etsystatic.com/5294424/c/1869/1869/23/0/il/1253c9/5139686065/il_300x300.5139686065_2wcp.jpg"
+                  src="https://i.etsystatic.com/6996104/c/1140/1140/92/38/il/2fd2b5/5532101087/il_300x300.5532101087_611q.jpg"
                   alt=""
                 />
-                <span>Keychains</span>
+                <span>Painting</span>
               </div>
               <div className="section">
                 <img
-                  src="https://i.etsystatic.com/5297211/c/630/630/0/19/il/6e8064/1653206188/il_300x300.1653206188_e37m.jpg"
+                  src="https://i.etsystatic.com/7923668/c/998/998/1/0/il/3e9953/1440705435/il_300x300.1440705435_ec5o.jpg"
                   alt=""
                 />
-                <span>Hats & Caps</span>
+                <span>Prints</span>
               </div>
               <div className="section">
                 <img
-                  src="https://i.etsystatic.com/5491963/r/il/9fd474/461948355/il_300x300.461948355_64cm.jpg"
+                  src="https://i.etsystatic.com/37142812/r/il/681104/4908658418/il_300x300.4908658418_53sz.jpg"
                   alt=""
                 />
-                <span>Scarves & Wraps</span>
+                <span>Sculpture</span>
               </div>
               <div className="section">
                 <img
-                  src="https://i.etsystatic.com/5207113/r/il/9d93ce/1300244677/il_300x300.1300244677_ehr8.jpg"
+                  src="https://i.etsystatic.com/25379704/r/il/f26ec0/3438965000/il_300x300.3438965000_qiwo.jpg"
                   alt=""
                 />
-                <span>Hair Accessories</span>
+                <span>Glass Art</span>
               </div>
               <div className="section">
                 <img
-                  src="https://i.etsystatic.com/5715409/c/900/900/0/0/il/2cc3a5/1075906626/il_300x300.1075906626_k0qi.jpg"
+                  src="https://i.etsystatic.com/14409281/r/il/e81b60/4651013203/il_300x300.4651013203_2j18.jpg"
                   alt=""
                 />
-                <span>Patches & Pins</span>
+                <span>Drawing & Illustration</span>
               </div>
               <div className="section">
                 <img
-                  src="https://i.etsystatic.com/32861059/r/il/798b77/3983876348/il_300x300.3983876348_99xs.jpg"
+                  src="https://i.etsystatic.com/28239647/r/il/7e7b9c/4316976210/il_300x300.4316976210_6hok.jpg"
                   alt=""
                 />
-                <span>Sunglasses & Eyewear</span>
+                <span>Collectibles</span>
               </div>
               </div>
             </div>
@@ -105,12 +105,10 @@ const Accessories = () => {
             <div className="product__card">
               {sortedData.map((item, index) => (
                 <div className="product__card__items" key={index}>
-                  
                   <div className="product__card__image">
-                  <Link to={`/${item._id}`}><img src={item.image} alt="" /></Link>
-                    
-                    <div className="favourites" onClick={()=>{handleAddWishlist(item)}}>
-                      <FaRegHeart />
+                    <img src={item.image} alt="" />
+                    <div className="favourites" >
+                      <FaRegHeart onClick={()=>{handleAddWishlist(item)}} />
                     </div>
                   </div>
                   <div className="card__down">
@@ -141,7 +139,9 @@ const Accessories = () => {
   );
 };
 
-export default Accessories;
+export default ArtCategory;
+
+
 
 
 
