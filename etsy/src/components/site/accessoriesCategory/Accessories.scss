@@ -1,0 +1,172 @@
+.accesories__items {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding-top: 20px;
+  color: #222222;
+  padding-bottom: 100px;
+}
+
+.acces {
+  display: flex;
+  flex-direction: column;
+}
+
+.section__ones {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+  .category__title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 31.01px;
+    width: 300px;
+    font-family: "Roboto Serif", serif;
+    font-weight: lighter;
+    padding: 20px;
+  }
+}
+
+.smalls {
+  font-size: 12.99px;
+  width: 350px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bolder;
+  color: gray;
+}
+
+.small__category {
+  display: flex;
+  gap: 30px;
+  font-size: 12.99px;
+  font-weight: bold;
+  justify-content: space-around;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  img {
+    width: 160px;
+    height: 180px;
+    border-radius: 5px;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &:hover {
+      opacity: 0.9;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: 0.3s;
+    }
+  }
+}
+
+.products {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: 100%;
+}
+
+.sort {
+  display: flex;
+  justify-content: center;
+
+  select {
+    text-align: center;
+    padding: 7px;
+    width: 200px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 50px;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      transition: 0.2s;
+    }
+  }
+}
+
+.product__card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.product__card__items {
+  display: flex;
+  flex-direction: column;
+  font-size: 12.99px;
+  padding: 10px;
+  width: 345px;
+  height: 393px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  img {
+    width: 300px;
+    border-radius: 2px;
+    position: relative;
+    height: 300px;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      cursor: pointer;
+    }
+  }
+}
+.product__card__image {
+  position: relative;
+  .favourites {
+    position: absolute;
+    top: 10px;
+    left: 250px;
+    background-color: white;
+    padding: 11px;
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 17px;
+    &:hover {
+      border-radius: 20px;
+    }
+  }
+}
+.card__down {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 5px;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+  font-size: 20px;
+}
+
+.product__price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ad__by {
+  color: gray;
+}

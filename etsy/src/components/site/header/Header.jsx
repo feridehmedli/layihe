@@ -29,9 +29,9 @@ const Header = () => {
           </div>
           <div className="right__sect">
             <div className="dropdown">
-              <div className="favourites right">
+              <Link to='/wishlist'><div className="favourites right">
                 <FaRegHeart />
-              </div>
+              </div></Link>
               <div className="dropdown-content">Favourites</div>
             </div>
             <div className="dropdown">

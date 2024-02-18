@@ -1,8 +1,12 @@
 import AdminRoot from "../components/admin/AdminRoot";
+import Jewellery from "../components/site/jewelleryCategories/Jewellery";
 import SiteRoot from "../components/site/Siteroot";
+import Accessories from "../components/site/accessoriesCategory/Accessories";
 import Home from "../components/site/home/Home";
 import Login from "../components/site/login/Login";
 import Register from "../components/site/register/Register";
+import Wishlist from "../components/site/wishlist/Wishlist";
+import HomeCategory from "../components/site/homeCategory/HomeCategory";
 
 export const Router = [
   {
@@ -12,18 +16,35 @@ export const Router = [
       {
         path: "",
         element: <Home />,
-      },{
-        path : '/login',
-        element :<Login/>
       },
       {
-        path:'/register',
-        element : <Register/>
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/accesories",
+        element: <Accessories />,
+      },
+      {
+        path: "/jewellery",
+        element: <Jewellery />,
+      },
+      {
+        path: "/wishlist",
+        element: <Wishlist />,
+      },
+      {
+        path : '/homeCategory',
+        element : <HomeCategory/>
       }
     ],
-  },{
-    path:'/admin',
-    element : <AdminRoot/>
-  }
+  },
+  {
+    path: "/admin",
+    element: <AdminRoot />,
+  },
 ];
-

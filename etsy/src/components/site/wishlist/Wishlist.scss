@@ -1,0 +1,105 @@
+.wishlist {
+  padding-top: 30px;
+  padding: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.wishlist__card__items {
+  width: 318px;
+  height: 400px;
+}
+.wishlist__card__image {
+  position: relative;
+  img {
+    width: 318px;
+    height: 318px;
+    border-radius: 5px;
+  }
+}
+.favourite__icon {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: rgb(172, 6, 6);
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: white;
+  &:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  }
+}
+.wishlist__item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.wishlist__card__title {
+  font-size: 12.99px;
+}
+.wishlist__card__down {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  gap: 10px;
+  .wishlist__price {
+    font-weight: bold;
+    color: rgb(7, 100, 7);
+  }
+}
+.favourite__items__title{
+    display: flex;
+    gap: 10px;
+}
+.wishlist__up{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+.profile__photo{
+    width: 50px;
+}
+.userName{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+}
+.adBy{
+   color: gray;
+   font-size: 10px;
+}
+.wishlist__username{
+    font-size: 19.01px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.favourite__items__title{
+    font-weight: bold;
+}
+.items__sayi{
+    font-weight: bold;
+    color: gray;
+}
+.wishlist__search{
+    display: flex;
+    justify-content: right;
+    input{
+        padding: 20px;
+        width: 700px;
+        height: 50px;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        font-weight: lighter;
+        box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+        border-radius: 50px;
+    }
+}
