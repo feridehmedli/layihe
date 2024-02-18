@@ -4,20 +4,24 @@ import { IoIosStar } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
 import { MainContext } from "../../../context/Context";
-
+import { Link } from "react-router-dom";
 
 const Jewellery = () => {
   const [data, setData] = useState([]);
   const [sortOption, setSortOption] = useState("relevancy");
-  const {handleAddWishlist} = useContext(MainContext)
+  const { handleAddWishlist,handleAddToBasket } = useContext(MainContext);
+  
   useEffect(() => {
-    axios.get("http://localhost:8080/jewellery")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((error) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/jewellery");
+        setData(response.data);
+      } catch (error) {
         console.error("Error fetching data:", error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   const handleSortChange = (e) => {
@@ -40,52 +44,52 @@ const Jewellery = () => {
             <div className="category__title">
               <span>Jewellery</span>
               <span className="smalls">
-              Rings, earrings and necklaces to instantly raise your jewelry-box game
+                Rings, earrings, and necklaces to instantly raise your
+                jewelry-box game
               </span>
             </div>
             <div className="small__category">
-            <div className="section">
+              <div className="section">
                 <img
                   src="https://i.etsystatic.com/8595828/c/3000/3000/0/0/il/2aa7b1/2294321673/il_300x300.2294321673_5ybn.jpg"
-                  alt=""
+                  alt="Rings"
                 />
                 <span>Rings</span>
               </div>
               <div className="section">
                 <img
                   src="https://i.etsystatic.com/7770785/r/il/d55a82/4328838368/il_300x300.4328838368_iyyu.jpg"
-                  alt=""
+                  alt="Necklaces"
                 />
                 <span>Necklaces</span>
               </div>
               <div className="section">
                 <img
                   src="https://i.etsystatic.com/17246174/r/il/2cf410/2546323062/il_300x300.2546323062_d78f.jpg"
-                  alt=""
+                  alt="Earrings"
                 />
                 <span>Earrings</span>
               </div>
               <div className="section">
                 <img
                   src="https://i.etsystatic.com/5204269/c/1100/1100/0/0/il/88e8eb/1053449136/il_300x300.1053449136_ngza.jpg"
-                  alt=""
+                  alt="Bracelets"
                 />
-                <span>Braceletes</span>
+                <span>Bracelets</span>
               </div>
               <div className="section">
                 <img
                   src="https://i.etsystatic.com/7704307/r/il/ed36fc/2341970317/il_300x300.2341970317_gqku.jpg"
-                  alt=""
+                  alt="Watches"
                 />
                 <span>Watches</span>
               </div>
               <div className="section">
                 <img
                   src="https://i.etsystatic.com/10204022/c/2586/2586/320/142/il/09c121/2731910039/il_300x300.2731910039_d8wd.jpg"
-                  alt=""
+                  alt="Cremation & Memorial Jewelry"
                 />
                 <span>Cremation & Memorial Jewelry</span>
-              </div>
               </div>
             </div>
           </div>
@@ -106,9 +110,11 @@ const Jewellery = () => {
               {sortedData.map((item, index) => (
                 <div className="product__card__items" key={index}>
                   <div className="product__card__image">
-                    <img src={item.image} alt="" />
-                    <div className="favourites" >
-                      <FaRegHeart onClick={()=>{handleAddWishlist(item)}} />
+                    <Link to={`/${item._id}`}>
+                      <img src={item.image} alt={item.name} />
+                    </Link>
+                    <div className="favourites">
+                      <FaRegHeart onClick={() => handleAddWishlist(item)} />
                     </div>
                   </div>
                   <div className="card__down">
@@ -116,11 +122,9 @@ const Jewellery = () => {
                       <span>{item.name.slice(0, 45)}</span>
                     </div>
                     <div className="stars">
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
+                      {[...Array(5)].map((_, i) => (
+                        <IoIosStar key={i} />
+                      ))}
                     </div>
                     <div className="product__price">
                       <span>USD {item.price}</span>
@@ -135,13 +139,8 @@ const Jewellery = () => {
           </div>
         </div>
       </div>
-    
+    </div>
   );
 };
 
 export default Jewellery;
-
-
-
-
-

@@ -115,7 +115,7 @@ const Accessories = () => {
                   </div>
                   <div className="card__down">
                     <div className="product__card__title">
-                      <span>{item.name.slice(0, 45)}</span>
+                      <span>{item.name?.slice(0, 45)}</span>
                     </div>
                     <div className="stars">
                       <IoIosStar />

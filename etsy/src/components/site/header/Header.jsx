@@ -11,21 +11,6 @@ import "./Header.scss";
 import axios from "axios";
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  useEffect(() => {
-    axios.get("http://localhost:8080/accesories").then((res) => {
-      console.log(res.data);
-    });
-  });
-  useEffect(() => {
-    axios.get("http://localhost:8080/jewellery").then((res) => {
-      console.log(res.data);
-    });
-  });
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
   return (
     <div>
       <div className="navbar">
@@ -40,12 +25,7 @@ const Header = () => {
             <span>Categories</span>
           </div>
           <div className="search__bar">
-            <input
-              type="text"
-              placeholder="Search for anything"
-              value={searchQuery}
-              onChange={handleSearch}
-            />
+            <input type="text" placeholder="Search for anything" />
             <div className="search__icon">
               <IoSearch className="search" />
             </div>
@@ -81,7 +61,9 @@ const Header = () => {
             </Link>
 
             <div className="cart ">
-              <LuShoppingCart />
+              <Link to="/basket">
+                <LuShoppingCart />
+              </Link>
             </div>
           </div>
         </div>

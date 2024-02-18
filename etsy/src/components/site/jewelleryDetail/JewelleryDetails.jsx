@@ -1,29 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { FaStar } from "react-icons/fa";
-import { MainContext } from "../../../context/Context";
-import "./DetailPage.scss";
-import toast from "react-hot-toast";
+import "./JewelleryDetails.scss";
+import { FaStar } from "react-icons/fa6";
 
-const DetailPage = () => {
-  const [detail, setDetail] = useState({});
+const JewelleryDetails = () => {
+  const [jewelleryDetail, setJewelleryDetail] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/accesories/${id}`).then((res) => {
-      setDetail(res.data);
+    axios.get(`http://localhost:8080/jewellery/${id}`).then((res) => {
+      setJewelleryDetail(res.data);
+      console.log(res.data);
     });
   }, [id]);
-
-  const { handleAddToBasket } = useContext(MainContext);
-
+  const myFunc = () => {
+    console.log(jewelleryDetail)
+  };
   return (
     <div className="detail">
       <div className="detail__items">
         <div className="detail__left">
           <div className="detail__image">
-            <img src={detail.image} alt="" />
+            <img  src={jewelleryDetail.image} alt="" />
           </div>
           <div className="comments">
             <div className="comments__items">
@@ -52,21 +51,14 @@ const DetailPage = () => {
           <div className="product__price">
             <span>
               <span>USD</span>{" "}
-              <span style={{ color: "green" }}>{detail.price}</span>
+              <span style={{ color: "green" }}>{jewelleryDetail.price}</span>
             </span>
           </div>
           <div className="product__description">
-            <span>{detail.desc}</span>
+            <span>{jewelleryDetail.desc}</span>
           </div>
           <div className="add__to__cart">
-            <button
-              onClick={() => {
-                handleAddToBasket(detail);
-                toast.success("Product was add to basket")
-              }}
-            >
-              Add to cart
-            </button>
+            <button >Add to cart</button>
           </div>
         </div>
       </div>
@@ -74,4 +66,4 @@ const DetailPage = () => {
   );
 };
 
-export default DetailPage;
+export default JewelleryDetails;

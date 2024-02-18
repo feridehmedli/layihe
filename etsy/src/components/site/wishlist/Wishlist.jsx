@@ -10,7 +10,7 @@ const Wishlist = () => {
   const [loginData, setLoginData] = useState([]);
 
   const filteredWishlist = wishlist.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   useEffect(() => {

@@ -9,6 +9,7 @@ import Wishlist from "../components/site/wishlist/Wishlist";
 import HomeCategory from "../components/site/homeCategory/HomeCategory";
 import ArtCategory from "../components/site/artCategory/ArtCategory";
 import DetailPage from "../components/site/detailPage/DetailPage";
+import BasketPage from "../components/site/basketPage/BasketPage";
 
 export const Router = [
   {
@@ -50,6 +51,10 @@ export const Router = [
       {
         path:'/artCategory',
         element : <ArtCategory/>
+      },
+      {
+        path :'/basket',
+        element : <BasketPage/>
       }
     ],
   },
