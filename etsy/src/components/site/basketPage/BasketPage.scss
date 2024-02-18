@@ -1,0 +1,80 @@
+.basket {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.total__price {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: lighter;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.basket__card {
+  display: flex;
+  justify-content: center;
+}
+.card__itemss {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+  width: 100%;
+}
+
+.card__item {
+  display: flex;
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 70px;
+  height: 100px;
+  & {
+    padding: 75px;
+    border-radius: 10px;
+  }
+  img {
+    width: 150px;
+    height: 120px;
+    border-radius: 30px;
+  }
+}
+.button__class {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+}
+.basket__items {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+.button__class {
+  button {
+    padding: 9px;
+    width: 40px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: white;
+    &:hover {
+      cursor: pointer;
+      background-color: black;
+      color: white;
+      transition: 0.3s;
+    }
+  }
+}
+.delete__basket {
+  font-size: 20px;
+}

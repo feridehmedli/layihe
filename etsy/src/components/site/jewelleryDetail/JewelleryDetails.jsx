@@ -5,7 +5,7 @@ import "./JewelleryDetails.scss";
 import { FaStar } from "react-icons/fa6";
 
 const JewelleryDetails = () => {
-  const [jewelleryDetail, setJewelleryDetail] = useState([]);
+  const [jewelleryDetail, setJewelleryDetail] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
