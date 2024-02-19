@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import "./EtsySeller.scss";
+import { MainContext } from "../../../context/Context";
+import axios from "axios";
 
 const EtsySeller = () => {
+  const [data, setData] = useState([]);
+  const { handleAddWishlist } = useContext(MainContext);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/recentlyfavourited/").then((res) => {
+      setData(res.data);
+    });
+  }, []);
+
+  const firstThreeItems = data.slice(10, 18);
+
   return (
     <div>
       <div className="seller">
@@ -12,118 +25,19 @@ const EtsySeller = () => {
             <span>By Etsy sellers</span>
           </div>
           <div className="cardss">
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
+            {firstThreeItems.map((item, index) => (
+              <div className="card__items" key={index}>
+                <div className="card__image">
+                  <img src={item.image} alt="" />
+                </div>
+                <div className="price">
+                  <span>USD {item.price}</span>
+                </div>
+                <div className="favourite" onClick={() => handleAddWishlist(item)}>
+                  <FaRegHeart />
+                </div>
               </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
-            <div className="card__items">
-              <div className="card__image">
-                <img
-                  src="https://i.etsystatic.com/10889806/r/il/a91214/5696970998/il_340x270.5696970998_ihhb.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="price">
-                <span>USD 13.34</span>
-              </div>
-              <div className="favourite">
-                <FaRegHeart />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

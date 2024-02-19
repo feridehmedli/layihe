@@ -11,7 +11,7 @@ const DetailPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/accesories/${id}`).then((res) => {
+    axios.get(`http://localhost:8080/jewellery/${id}`).then((res) => {
       setDetail(res.data);
     });
   }, [id]);

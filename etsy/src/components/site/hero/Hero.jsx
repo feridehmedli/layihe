@@ -15,11 +15,9 @@ const Hero = () => {
       setData(res.data);
     });
   }, []);
-  useEffect(() => {
-    axios.get("http://localhost:8080/human/").then((res) => {
-      setLoginData(res.data);
-    });
-  }, []);
+
+
+  const firstThreeItems = data.slice(0, 5);
 
   return (
     <div>
@@ -32,7 +30,7 @@ const Hero = () => {
                 <a href="" style={{ color: "black" }}>
                   {loginData[loginData.length-1].name}
                 </a>
-                !
+                ! 
               </span>
             </div>
           )}
@@ -41,8 +39,8 @@ const Hero = () => {
             <FaArrowRightLong />
           </div>
           <div className="cards">
-            {data && data.length > 0 ? (
-              data.map((item, index) => (
+            {firstThreeItems && firstThreeItems.length > 0 ? (
+              firstThreeItems.map((item, index) => (
                 <div key={index}>
                   <div className="card__items">
                     <div className="card__image">
