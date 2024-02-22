@@ -1,19 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Dashboard.scss";
+import "./AccesoriesAdmin";
+import { MainContext } from "../../../context/Context";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
-import JewelleryAdmin from '../jewelleryAdmin/JewelleryAdmin';
-import AccesoriesAdmin from "../accesoriesAdmin/AccesoriesAdmin";
 
-const Dashboard = () => {
+const AccesoriesAdmin = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/recentlyFavourited");
+        const response = await axios.get("http://localhost:8080/accesories");
         setData(response.data);
         setLoading(false);
       } catch (error) {
@@ -27,7 +26,7 @@ const Dashboard = () => {
 
   const handleDelete = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:8080/recentlyFavourited/${itemId}`);
+      await axios.delete(`http://localhost:8080/accesories/${itemId}`);
       setData((prevData) => prevData.filter((item) => item._id !== itemId));
       toast.success("Item deleted successfully!");
     } catch (error) {
@@ -38,8 +37,6 @@ const Dashboard = () => {
 
   return (
     <div>
-      <JewelleryAdmin/>
-      <AccesoriesAdmin/>
       {loading ? (
         <div>
           <Spinner animation="border" role="status">
@@ -72,4 +69,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AccesoriesAdmin;

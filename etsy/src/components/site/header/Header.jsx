@@ -8,7 +8,6 @@ import { CgProfile } from "react-icons/cg";
 import { LuShoppingCart } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import "./Header.scss";
-import axios from "axios";
 
 const Header = () => {
   return (
@@ -17,7 +16,7 @@ const Header = () => {
         <div className="navbar__items">
           <div className="navbar__logo">
             <Link to="">
-              <span>Etsy</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Etsy_logo_lg_rgb.png" alt="" />
             </Link>
           </div>
           <div className="categories">

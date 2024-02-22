@@ -1,14 +1,16 @@
 import React from 'react'
-import Header from './header/Header'
-import Footer from './footer/Footer'
 import { Outlet } from 'react-router'
+import AdminHeader from './header/AdminHeader'
+import AdminFooter from './footer/AdminFooter'
+import Dashboard from './dashboard/Dashboard'
 
 const AdminRoot = () => {
   return (
     <div>
-      <Header/>
+      <AdminHeader/>
       <Outlet/>
-      <Footer/>
+      <Dashboard/>
+      <AdminFooter/>
     </div>
   )
 }

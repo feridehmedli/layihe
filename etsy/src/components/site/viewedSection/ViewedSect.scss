@@ -90,8 +90,9 @@
     font-weight: bold;
 }
 .end__cards{
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
 }
 .end__cards__items{
     display: flex;

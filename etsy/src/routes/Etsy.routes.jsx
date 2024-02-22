@@ -10,6 +10,7 @@ import HomeCategory from "../components/site/homeCategory/HomeCategory";
 import ArtCategory from "../components/site/artCategory/ArtCategory";
 import DetailPage from "../components/site/detailPage/DetailPage";
 import BasketPage from "../components/site/basketPage/BasketPage";
+import AddProduct from "../components/admin/addPage/AddProduct";
 
 export const Router = [
   {
@@ -33,8 +34,8 @@ export const Router = [
         element: <Accessories />,
       },
       {
-        path : '/:id',
-        element : <DetailPage/>
+        path: "/:id",
+        element: <DetailPage />,
       },
       {
         path: "/jewellery",
@@ -45,21 +46,25 @@ export const Router = [
         element: <Wishlist />,
       },
       {
-        path : '/homeCategory',
-        element : <HomeCategory/>
+        path: "/homeCategory",
+        element: <HomeCategory />,
       },
       {
-        path:'/artCategory',
-        element : <ArtCategory/>
+        path: "/artCategory",
+        element: <ArtCategory />,
       },
       {
-        path :'/basket',
-        element : <BasketPage/>
-      }
+        path: "/basket",
+        element: <BasketPage />,
+      },
     ],
   },
   {
     path: "/admin",
     element: <AdminRoot />,
+  },
+  {
+    path: "/addProduct",
+    element: <AddProduct />,
   },
 ];

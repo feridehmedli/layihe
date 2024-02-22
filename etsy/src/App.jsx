@@ -12,7 +12,7 @@ function App() {
   
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/jewellery").then((res) => {
+    axios.get("http://localhost:8080/recentlyFavourited").then((res) => {
       setData(res.data);
     });
   }, []);
@@ -47,7 +47,7 @@ function App() {
     toast.error("Item was deleted from the wishlist");
   };
 
-  //basket
+
   const handleAddToBasket = (item) => {
     const target = basketItems.find((prod) => prod._id == item._id);
     if (!target) {
