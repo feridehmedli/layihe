@@ -5,6 +5,7 @@ import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
 import { MainContext } from "../../../context/Context";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Jewellery = () => {
   const [data, setData] = useState([]);
@@ -126,11 +127,21 @@ const Jewellery = () => {
                         <IoIosStar key={i} />
                       ))}
                     </div>
-                    <div className="product__price">
+                    <div className="product__prices">
                       <span>USD {item.price}</span>
                     </div>
                     <div className="ad__by">
                       <span>Ad by {item.adBy}</span>
+                      <div className="addToCartButton">
+                      <button
+                        onClick={() => {
+                          handleAddToBasket(item);
+                          toast.success("Product was added to basket");
+                        }}
+                      >
+                        Add to cart
+                      </button>
+                    </div>
                     </div>
                   </div>
                 </div>

@@ -5,13 +5,16 @@ import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
 import { MainContext } from "../../../context/Context";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Accessories = () => {
   const [data, setData] = useState([]);
   const [sortOption, setSortOption] = useState("relevancy");
+  const { handleAddToBasket } = useContext(MainContext);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/accesories")
+    axios
+      .get("http://localhost:8080/accesories")
       .then((res) => {
         setData(res.data);
       })
@@ -23,7 +26,7 @@ const Accessories = () => {
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
   };
-  const {handleAddWishlist} = useContext(MainContext)
+  const { handleAddWishlist } = useContext(MainContext);
   const sortedData = [...data];
 
   if (sortOption === "lowtohigh") {
@@ -44,7 +47,7 @@ const Accessories = () => {
               </span>
             </div>
             <div className="small__category">
-            <div className="section">
+              <div className="section">
                 <img
                   src="https://i.etsystatic.com/5294424/c/1869/1869/23/0/il/1253c9/5139686065/il_300x300.5139686065_2wcp.jpg"
                   alt=""
@@ -86,63 +89,74 @@ const Accessories = () => {
                 />
                 <span>Sunglasses & Eyewear</span>
               </div>
-              </div>
-            </div>
-          </div>
-          <div className="products">
-            <div className="sort">
-              <select
-                name="filter"
-                id="filter"
-                onChange={handleSortChange}
-                value={sortOption}
-              >
-                <option value="relevancy">Relevancy</option>
-                <option value="lowtohigh">From cheap to expensive</option>
-                <option value="hightolow">From expensive to cheap</option>
-              </select>
-            </div>
-            <div className="product__card">
-              {sortedData.map((item, index) => (
-                <div className="product__card__items" key={index}>
-                  
-                  <div className="product__card__image">
-                  <Link to={`/${item._id}`}><img src={item.image} alt="" /></Link>
-                    
-                    <div className="favourites" onClick={()=>{handleAddWishlist(item)}}>
-                      <FaRegHeart />
-                    </div>
-                  </div>
-                  <div className="card__down">
-                    <div className="product__card__title">
-                      <span>{item.name?.slice(0, 45)}</span>
-                    </div>
-                    <div className="stars">
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
-                    </div>
-                    <div className="product__price">
-                      <span>USD {item.price}</span>
-                    </div>
-                    <div className="ad__by">
-                      <span>Ad by {item.adBy}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
+        <div className="products">
+          <div className="sort">
+            <select
+              name="filter"
+              id="filter"
+              onChange={handleSortChange}
+              value={sortOption}
+            >
+              <option value="relevancy">Relevancy</option>
+              <option value="lowtohigh">From cheap to expensive</option>
+              <option value="hightolow">From expensive to cheap</option>
+            </select>
+          </div>
+          <div className="product__card">
+            {sortedData.map((item, index) => (
+              <div className="product__card__items" key={index}>
+                <div className="product__card__image">
+                  <Link to={`/${item._id}`}>
+                    <img src={item.image} alt="" />
+                  </Link>
+
+                  <div
+                    className="favourites"
+                    onClick={() => {
+                      handleAddWishlist(item);
+                    }}
+                  >
+                    <FaRegHeart />
+                  </div>
+                </div>
+                <div className="card__downs">
+                  <div className="product__card__title">
+                    <span>{item.name?.slice(0, 45)}</span>
+                  </div>
+                  <div className="stars">
+                    <IoIosStar />
+                    <IoIosStar />
+                    <IoIosStar />
+                    <IoIosStar />
+                    <IoIosStar />
+                  </div>
+                  <div className="product__prices">
+                    <span>USD {item.price}</span>
+                  </div>
+                  <div className="ad__by">
+                    <span>Ad by {item.adBy}</span>
+                    <div className="addToCartButton">
+                      <button
+                        onClick={() => {
+                          handleAddToBasket(item);
+                          toast.success("Product was added to basket");
+                        }}
+                      >
+                        Add to cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    
+    </div>
   );
 };
 
 export default Accessories;
-
-
-
-

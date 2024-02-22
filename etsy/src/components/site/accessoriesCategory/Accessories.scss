@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding: 400px;
   align-items: center;
   width: 100%;
   justify-content: center;
@@ -78,7 +79,7 @@
   padding-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 100px;
   height: 100%;
 }
 
@@ -115,6 +116,7 @@
 .product__card__items {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   font-size: 12.99px;
   padding: 10px;
   width: 345px;
@@ -150,7 +152,7 @@
     }
   }
 }
-.card__down {
+.card__downs {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -163,11 +165,29 @@
   font-size: 20px;
 }
 
-.product__price {
-  font-size: 16px;
+.product__prices {
+  font-size: 15px;
+  color: green;
   font-weight: bold;
 }
 
 .ad__by {
   color: gray;
+  display: flex;
+  gap: 20px;
+  justify-content: left;
+  align-items: center;
+  button{
+    padding: 4px;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 6px;
+    color: white;
+    &:hover{
+      background-color: white;
+      color: black;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  }
 }

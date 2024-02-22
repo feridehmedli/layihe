@@ -62,6 +62,7 @@ function App() {
         "basketItems",
         JSON.stringify([...basketItems, newBasket])
       );
+      
     } else {
       const target = basketItems.find((myitem) => myitem.item._id == item._id);
       target.count += 1;

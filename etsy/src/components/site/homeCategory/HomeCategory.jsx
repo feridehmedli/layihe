@@ -4,12 +4,13 @@ import { IoIosStar } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
 import { MainContext } from "../../../context/Context";
+import toast from "react-hot-toast";
 
 
 const HomeCategory = () => {
   const [data, setData] = useState([]);
   const [sortOption, setSortOption] = useState("relevancy");
-  const {handleAddWishlist} = useContext(MainContext)
+  const {handleAddWishlist , handleAddToBasket} = useContext(MainContext)
   useEffect(() => {
     axios.get("http://localhost:8080/homeCategory")
       .then((res) => {
@@ -122,11 +123,21 @@ const HomeCategory = () => {
                       <IoIosStar />
                       <IoIosStar />
                     </div>
-                    <div className="product__price">
+                    <div className="product__prices">
                       <span>USD {item.price}</span>
                     </div>
                     <div className="ad__by">
                       <span>Ad by {item.adBy}</span>
+                      <div className="addToCartButton">
+                      <button
+                        onClick={() => {
+                          handleAddToBasket(item);
+                          toast.success("Product was added to basket");
+                        }}
+                      >
+                        Add to cart
+                      </button>
+                    </div>
                     </div>
                   </div>
                 </div>

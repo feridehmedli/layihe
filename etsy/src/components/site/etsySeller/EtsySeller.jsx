@@ -14,7 +14,7 @@ const EtsySeller = () => {
     });
   }, []);
 
-  const firstThreeItems = data.slice(10, 18);
+  const firstThreeItems = data.slice(10, 30);
 
   return (
     <div>
