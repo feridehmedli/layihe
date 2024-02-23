@@ -30,7 +30,7 @@ const Footer = () => {
                 />
               </div>
               <div className="download__button">
-                <button>Download the Etsy App</button>
+                <a href="https://www.etsy.com/mobile?_branch_match_id=1232346444092596876&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXTy0prtRLLCjQy8nMy9ZPMc9zCU0pMLEMAwCMBm8EIAAAAA%3D%3D"><button>Download the Etsy App</button></a>
               </div>
             </div>
           </div>

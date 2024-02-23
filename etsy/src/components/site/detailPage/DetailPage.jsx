@@ -62,7 +62,6 @@ const DetailPage = () => {
             <button
               onClick={() => {
                 handleAddToBasket(detail);
-                toast.success("Product was add to basket")
               }}
             >
               Add to cart

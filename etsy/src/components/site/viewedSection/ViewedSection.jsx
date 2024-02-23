@@ -4,12 +4,13 @@ import "./ViewedSect.scss";
 import { FaArrowRightLong } from "react-icons/fa6";
 import axios from "axios";
 import { MainContext } from "../../../context/Context";
+import { Link } from "react-router-dom";
 
 const ViewedSection = () => {
   const {handleAddWishlist} = useContext(MainContext)
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/recentlyfavourited/").then((res) => {
+    axios.get("http://localhost:8080/accesories/").then((res) => {
       setData(res.data);
     });
   }, []);
@@ -43,12 +44,14 @@ const ViewedSection = () => {
           <div className="cardss">
             {firstThreeItems && firstThreeItems.length > 0 && firstThreeItems.map((item, index) => (
               <div className="card__items" key={index}>
+                <Link to={`${item._id}`} >
                 <div className="card__image">
                   <img
                     src={item.image}
                     alt=""
                   />
                 </div>
+                </Link>
                 <div className="price">
                   <span>USD {item.price}</span>
                 </div>

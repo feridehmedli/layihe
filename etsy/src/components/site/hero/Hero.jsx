@@ -4,6 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import axios from "axios";
 import { MainContext } from "../../../context/Context";
 import "./Hero.scss";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [data, setData] = useState([]);
@@ -11,7 +12,7 @@ const Hero = () => {
   const [loginData, setLoginData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/recentlyfavourited/").then((res) => {
+    axios.get("http://localhost:8080/accesories/").then((res) => {
       setData(res.data);
     });
 
@@ -27,7 +28,7 @@ const Hero = () => {
     fetchLoginData();
   }, []);
 
-  const firstThreeItems = data.slice(0, 5);
+  const firstThreeItems = data.slice(10,15);
 
   return (
     <div className="hero">
@@ -36,9 +37,9 @@ const Hero = () => {
           <div className="welcome">
             <span>
               Welcome,{" "}
-              <a href="" style={{ color: "black" }}>
+              <Link to='/wishlist' href="" style={{ color: "black" }}>
                 {loginData[loginData.length - 1].name}
-              </a>
+              </Link>
               !
             </span>
           </div>
@@ -51,9 +52,11 @@ const Hero = () => {
           {firstThreeItems && firstThreeItems.length > 0 ? (
             firstThreeItems.map((item, index) => (
               <div key={index} className="card__items">
+                <Link to={`${item._id}`}>
                 <div className="card__image">
                   <img src={item.image} alt="" />
                 </div>
+                </Link>
                 <div className="price">
                   <span> USD {item.price}</span>
                 </div>

@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from "react";
+// Header.jsx
+import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoSearch } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoMdNotificationsOutline, IoIosArrowDown } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { LuShoppingCart } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 
 const Header = () => {
+  const [showCategories, setShowCategories] = useState(false);
+
+  const toggleCategories = () => {
+    setShowCategories(!showCategories);
+  };
+
   return (
     <div>
       <div className="navbar">
@@ -19,9 +25,21 @@ const Header = () => {
               <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Etsy_logo_lg_rgb.png" alt="" />
             </Link>
           </div>
-          <div className="categories">
+          <div className="categories" onClick={toggleCategories}>
+            <div className="categ__title">
             <RxHamburgerMenu className="hamburger" />
             <span>Categories</span>
+            </div>
+            <div className="categories__items">
+            {showCategories && (
+              <div className="categories-dropdown">
+                <Link to="/accesories">Accesories</Link>
+                <Link to="/jewellery">Jewelry</Link>
+                <Link to="/homeCategory">Home & Living</Link>
+                <Link to="/artCategory">Art & Collectibles</Link>
+              </div>
+            )}
+            </div>
           </div>
           <div className="search__bar">
             <input type="text" placeholder="Search for anything" />
@@ -58,7 +76,6 @@ const Header = () => {
                 <div className="dropdown-content">Profile</div>
               </div>
             </Link>
-
             <div className="cart ">
               <Link to="/basket">
                 <LuShoppingCart />
