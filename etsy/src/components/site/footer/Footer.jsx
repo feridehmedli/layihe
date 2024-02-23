@@ -7,6 +7,7 @@ import { FaYoutube } from "react-icons/fa";
 import { TiWorld } from "react-icons/ti";
 import "./Footer.scss";
 import { TbWorld } from "react-icons/tb";
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -59,7 +60,7 @@ const Footer = () => {
             <div className="section__three">
               <h5>About</h5>
               <div className="spans">
-                <span>Etsy, Inc.</span>
+              <Link to = '/about' style={{"textDecoration" : "none","color":"white"}}><span >Etsy, Inc.</span></Link>
                 <span>Policies</span>
                 <span>Investors</span>
                 <span>Careers</span>

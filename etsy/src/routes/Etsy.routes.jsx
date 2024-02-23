@@ -11,6 +11,7 @@ import ArtCategory from "../components/site/artCategory/ArtCategory";
 import DetailPage from "../components/site/detailPage/DetailPage";
 import BasketPage from "../components/site/basketPage/BasketPage";
 import AddProduct from "../components/admin/addPage/AddProduct";
+import AboutPage from "../components/site/aboutPage/AboutPage";
 
 export const Router = [
   {
@@ -57,6 +58,10 @@ export const Router = [
         path: "/basket",
         element: <BasketPage />,
       },
+      {
+        path : '/about',
+        element : <AboutPage/>
+      }
     ],
   },
   {
