@@ -6,5 +6,6 @@ router.get("/",FavouritedController.getAll)
 router.get("/:id",FavouritedController.getById)
 router.post("/",FavouritedController.add)
 router.delete("/:id",FavouritedController.delete)
+router.put("/:id",FavouritedController.edit)
 
 module.exports = router

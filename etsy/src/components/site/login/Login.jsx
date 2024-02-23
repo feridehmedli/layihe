@@ -55,6 +55,7 @@ const Login = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
+                  className="emailAddres"
                 />
                 {errors.email && touched.email && errors.email}
                 <span>Password</span>
@@ -64,6 +65,7 @@ const Login = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
+                  className="passwordLogin"
                 />
                 {errors.password && touched.password && errors.password}
                 <div className="button">

@@ -39,7 +39,7 @@ const HomeCategory = () => {
         <div className="accesories__items">
           <div className="section__ones">
             <div className="category__title">
-              <span>HomeCategory</span>
+              <span>Home & Living</span>
               <span className="smalls">
               Kitchen and dining, storage solutions, rugs, lighting, wall decor, and furniture—everything you need to make your home yours
               </span>

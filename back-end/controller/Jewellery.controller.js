@@ -28,6 +28,17 @@ const JewelleryController = {
             res.status(404).send("Can not post")
         }
     },
+    edit: async (req, res) => {
+
+        try {
+            const { id } = req.params
+            const { image,name, desc, price ,adBy } = req.body
+            await Jewellery.findByIdAndUpdate(id, { image,name, desc, price ,adBy })
+            res.status(200).send("item updated")
+        } catch (error) {
+            res.status(500).send("an error occured while editing item")
+        }
+    },
     delete: async (req, res) => {
         try {
             const { id } = req.params

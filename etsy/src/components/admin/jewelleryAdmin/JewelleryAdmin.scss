@@ -1,0 +1,39 @@
+.save__button{
+    padding: 8px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgb(44, 168, 44);
+    color: white;
+    border-radius: 10px;
+
+}
+.edit-form{
+    display: flex;
+    gap: 20px;
+    input{
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+}
+.edit{
+    padding: 8px;
+    border: none;
+    background-color: rgb(9, 136, 9);
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+.delete{
+    padding: 8px;
+    border: none;
+    background-color: red;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+.table__buttons{
+    display: flex;
+    gap: 20px;
+}

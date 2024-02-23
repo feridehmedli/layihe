@@ -28,6 +28,26 @@ const ArtController = {
             res.status(404).send("Can not post")
         }
     },
+    edit: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const { image, name, desc, price, adBy } = req.body;
+            if (!image || !name || !desc || !price || !adBy) {
+                return res.status(400).send("All fields are required");
+            }
+
+            const updatedArt = await Art.findByIdAndUpdate(id, { image, name, desc, price, adBy }, { new: true });
+
+            if (!updatedArt) {
+                return res.status(404).send("Art not found");
+            }
+
+            res.status(200).send("Art updated");
+        } catch (error) {
+            console.error("Error updating art:", error);
+            res.status(500).send("Internal Server Error");
+        }
+    },
     delete: async (req, res) => {
         try {
             const { id } = req.params

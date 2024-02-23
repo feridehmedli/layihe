@@ -6,5 +6,6 @@ accesoriesRouter.get("/",AccesoriesController.getAll)
 accesoriesRouter.get("/:id",AccesoriesController.getById)
 accesoriesRouter.post("/",AccesoriesController.add)
 accesoriesRouter.delete("/:id",AccesoriesController.delete)
+accesoriesRouter.put("/:id",AccesoriesController.edit)
 
 module.exports = accesoriesRouter

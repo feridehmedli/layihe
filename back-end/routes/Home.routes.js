@@ -6,5 +6,6 @@ homeRouter.get("/",HomeController.getAll)
 homeRouter.get("/:id",HomeController.getById)
 homeRouter.post("/",HomeController.add)
 homeRouter.delete("/:id",HomeController.delete)
+homeRouter.put("/:id",HomeController.edit)
 
 module.exports = homeRouter

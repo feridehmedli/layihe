@@ -28,6 +28,16 @@ const AccesoriesController = {
             res.status(404).send("Can not post")
         }
     },
+    edit: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const { image, name, desc, price, adBy } = req.body;
+            await Accesories.findByIdAndUpdate(id, { image, name, desc, price, adBy });
+            res.status(200).send("Item updated");
+        } catch (error) {
+            res.status(500).send("An error occurred while editing item");
+        }
+    },
     delete: async (req, res) => {
         try {
             const { id } = req.params
