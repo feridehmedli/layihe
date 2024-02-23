@@ -62,7 +62,7 @@ function App() {
         "basketItems",
         JSON.stringify([...basketItems, newBasket])
       );
-      
+      toast.success("Item was added to basket")
     } else {
       const target = basketItems.find((myitem) => myitem.item._id == item._id);
       target.count += 1;

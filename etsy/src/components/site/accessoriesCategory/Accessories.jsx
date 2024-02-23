@@ -142,7 +142,6 @@ const Accessories = () => {
                       <button
                         onClick={() => {
                           handleAddToBasket(item);
-                          toast.success("Product was added to basket");
                         }}
                       >
                         Add to cart

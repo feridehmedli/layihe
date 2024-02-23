@@ -119,6 +119,7 @@
     gap: 10px;
     font-size: 12.99px;
     padding: 10px;
+    margin-bottom:50px;
     width: 345px;
     height: 393px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -182,7 +183,10 @@
       background-color: black;
       border: 2px solid black;
       border-radius: 6px;
+      height: 40px;
+      width: 140px;
       color: white;
+      font-weight: bold;
       &:hover{
         background-color: white;
         color: black;

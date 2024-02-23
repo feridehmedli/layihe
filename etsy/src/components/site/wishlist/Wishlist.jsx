@@ -5,7 +5,7 @@ import { IoIosStar, IoIosHeart } from "react-icons/io";
 import axios from "axios";
 
 const Wishlist = () => {
-  const { wishlist, handleDeleteWishlist } = useContext(MainContext);
+  const { wishlist, handleDeleteWishlist,handleAddToBasket } = useContext(MainContext);
   const [searchQuery, setSearchQuery] = useState("");
   const [loginData, setLoginData] = useState([]);
 
@@ -79,6 +79,9 @@ const Wishlist = () => {
 
                 <div className="wishlist__price">
                   <span>USD {item.price}</span>
+                </div>
+                <div className="add__to__basket">
+                  <button onClick={()=>{handleAddToBasket(item)}}>Add to basket</button>
                 </div>
               </div>
             </div>
